@@ -79,7 +79,7 @@ dns:
   blocking_mode: nxdomain
   blocking_ipv4: ""
   blocking_ipv6: ""
-  blocked_response_ttl: 10
+  blocked_response_ttl: 60
   ratelimit: 0
   ratelimit_whitelist: []
   refuse_any: true
