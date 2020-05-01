@@ -6,8 +6,8 @@ on:
   push:
     tags:
     - 'v*'
-#    branches: 
-#      - master
+    branches: 
+      - master
 #  schedule:
 #    - cron: 0 17 * * 4
   watch:
@@ -32,9 +32,7 @@ jobs:
     - name: Clone source code
       run: |
         cd toolchain-mipsel
-        mkdir -p toolchain-3.4.x
-        wget https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/mipsel-linux-uclibc.tar.xz
-        tar -xvf mipsel-linux-uclibc.tar.xz -C toolchain-3.4.x
+        sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
@@ -100,11 +98,9 @@ jobs:
         sudo ./build_firmware_bkye $m
         sudo mv -f images/*.trx /opt/images/
         done
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v1-release
+    - name: Upload packages
+      uses: actions/upload-artifact@master
+      if: always()
       with:
-        repo_token: ${{ secrets.R_TOKEN }}
-        file: /opt/images/*.trx
-        tag: AtuoBuild
-        overwrite: true
-        file_glob: true
+        name: Padavan-packages
+        path: /opt/images
