@@ -70,52 +70,75 @@ rlimit_nofile: 0
 dns:
   bind_host: 0.0.0.0
   port: 5335
-  protection_enabled: true
-  filtering_enabled: true
-  blocking_mode: nxdomain
-  blocked_response_ttl: 60
+  statistics_interval: 1
   querylog_enabled: true
+  querylog_interval: 90
+  querylog_size_memory: 1000
+  anonymize_client_ip: false
+  protection_enabled: true
+  blocking_mode: nxdomain
+  blocking_ipv4: ""
+  blocking_ipv6: ""
+  blocked_response_ttl: 10
   ratelimit: 0
   ratelimit_whitelist: []
   refuse_any: true
   bootstrap_dns:
   - 114.114.114.114
   - 119.29.29.29
-  - 180.76.76.76
-  - 223.6.6.6
-  all_servers: true
+  all_servers: false
+  edns_client_subnet: false
+  enable_dnssec: true
+  aaaa_disabled: false
+  fastest_addr: true
   allowed_clients: []
   disallowed_clients: []
   blocked_hosts: []
-  parental_sensitivity: 0
+  parental_block_host: family-block.dns.adguard.com
+  safebrowsing_block_host: standard-block.dns.adguard.com
+  cache_size: 4194304
+  cache_ttl_min: 0
+  cache_ttl_max: 0
+  upstream_dns:
+  - tls://v.233py.com
+  - https://i.233py.com/dns-query
+  filtering_enabled: true
+  filters_update_interval: 24
   parental_enabled: false
   safesearch_enabled: false
   safebrowsing_enabled: false
-  resolveraddress: ""
-  upstream_dns:
-  - 127.0.0.1:6053
-  - 127.0.0.1:7053
+  safebrowsing_cache_size: 1048576
+  safesearch_cache_size: 1048576
+  parental_cache_size: 1048576
+  cache_time: 30
+  rewrites: []
+  blocked_services: []
 tls:
   enabled: false
   server_name: ""
   force_https: false
   port_https: 443
   port_dns_over_tls: 853
+  allow_unencrypted_doh: false
+  strict_sni_check: false
   certificate_chain: ""
   private_key: ""
+  certificate_path: ""
+  private_key_path: ""
 filters:
 - enabled: true
   url: https://gitee.com/privacy-protection-tools/anti-ad/raw/master/easylist.txt
-  name: anti-AD
-  id: 1
-- enabled: true
-  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
-  name: 乘风视频
-  id: 2
+  name: easylist
+  id: 1588275967
 - enabled: true
   url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt
   name: 乘风
-  id: 3
+  id: 1588275968
+- enabled: true
+  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
+  name: 乘风视频
+  id: 1588275969
+whitelist_filters: []
 user_rules: []
 dhcp:
   enabled: false
@@ -129,7 +152,7 @@ dhcp:
 clients: []
 log_file: ""
 verbose: false
-schema_version: 3
+schema_version: 6
 
 EEE
 	chmod 755 "$adg_file"
