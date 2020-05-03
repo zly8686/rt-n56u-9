@@ -80,9 +80,6 @@ dns:
   refuse_any: true
   bootstrap_dns:
   - 114.114.114.114
-  - 119.29.29.29
-  - 180.76.76.76
-  - 223.6.6.6
   all_servers: true
   allowed_clients: []
   disallowed_clients: []
