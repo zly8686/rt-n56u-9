@@ -1,17 +1,17 @@
 name: Build MT7621-1
 
 on: 
-  release:
-    types: [published]
-  push:
-    tags:
-    - 'v*'
-    branches: 
-      - master
+#  release:
+#    types: [published]
+#  push:
+#    tags:
+#    - 'v*'
+#    branches: 
+#      - master
 #  schedule:
 #    - cron: 0 17 * * 4
-  watch:
-    types: [started]
+#  watch:
+#    types: [started]
 
 jobs:
   build:
