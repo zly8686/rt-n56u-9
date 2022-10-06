@@ -7,7 +7,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     bonsai (1.4.9)
       activesupport (>= 3.0.3)
       builder (>= 3.0.0)
@@ -31,6 +32,7 @@ GEM
     maruku (0.7.2)
     minitest (5.8.0)
     mustache (0.99.8)
+    public_suffix (5.0.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
